@@ -10,11 +10,11 @@ namespace ChildLogicHotfix {
         public static void OnLogin(IPlayer iplayer) {
             if (iplayer == null) return;
             Player player = (Player)iplayer;
-            PlayerManager.players.Add(player.Id, player);
-
+            
+           // Console.WriteLine("OnLogin1");
         }
         public static void OnLogout(IPlayer iplayer) {
-            PlayerManager.players.Remove(iplayer.id);
+            PlayerManager.RemovePlayer(iplayer.id);
         }
 
     }

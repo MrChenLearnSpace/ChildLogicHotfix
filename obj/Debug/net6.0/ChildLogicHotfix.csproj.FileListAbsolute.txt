@@ -1,3 +1,8 @@
+F:\project\VSProject\ChildLogicHotfix\obj\Debug\net6.0\ChildLogicHotfix.csproj.AssemblyReference.cache
+F:\project\VSProject\ChildLogicHotfix\obj\Debug\net6.0\ChildLogicHotfix.GeneratedMSBuildEditorConfig.editorconfig
+F:\project\VSProject\ChildLogicHotfix\obj\Debug\net6.0\ChildLogicHotfix.AssemblyInfoInputs.cache
+F:\project\VSProject\ChildLogicHotfix\obj\Debug\net6.0\ChildLogicHotfix.AssemblyInfo.cs
+F:\project\VSProject\ChildLogicHotfix\obj\Debug\net6.0\ChildLogicHotfix.csproj.CoreCompileInputs.cache
 F:\project\VSProject\ChildLogicHotfix\bin\Debug\net6.0\ChildLogicHotfix.deps.json
 F:\project\VSProject\ChildLogicHotfix\bin\Debug\net6.0\ChildLogicHotfix.dll
 F:\project\VSProject\ChildLogicHotfix\bin\Debug\net6.0\ChildLogicHotfix.pdb
@@ -14,11 +19,6 @@ F:\project\VSProject\ChildLogicHotfix\bin\Debug\net6.0\K4os.Hash.xxHash.dll
 F:\project\VSProject\ChildLogicHotfix\bin\Debug\net6.0\System.Windows.Extensions.dll
 F:\project\VSProject\ChildLogicHotfix\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
 F:\project\VSProject\ChildLogicHotfix\bin\Debug\net6.0\ServerCore.pdb
-F:\project\VSProject\ChildLogicHotfix\obj\Debug\net6.0\ChildLogicHotfix.csproj.AssemblyReference.cache
-F:\project\VSProject\ChildLogicHotfix\obj\Debug\net6.0\ChildLogicHotfix.GeneratedMSBuildEditorConfig.editorconfig
-F:\project\VSProject\ChildLogicHotfix\obj\Debug\net6.0\ChildLogicHotfix.AssemblyInfoInputs.cache
-F:\project\VSProject\ChildLogicHotfix\obj\Debug\net6.0\ChildLogicHotfix.AssemblyInfo.cs
-F:\project\VSProject\ChildLogicHotfix\obj\Debug\net6.0\ChildLogicHotfix.csproj.CoreCompileInputs.cache
 F:\project\VSProject\ChildLogicHotfix\obj\Debug\net6.0\ChildLogicHotfix.csproj.CopyComplete
 F:\project\VSProject\ChildLogicHotfix\obj\Debug\net6.0\ChildLogicHotfix.dll
 F:\project\VSProject\ChildLogicHotfix\obj\Debug\net6.0\refint\ChildLogicHotfix.dll

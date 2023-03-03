@@ -17,4 +17,17 @@ public class MsgAddItem : MsgBase {
     public ItemData data = new ItemData();
 }
 
+public class MsgPlayersList : MsgBase {
+    public MsgPlayersList() { protoName = "MsgPlayersList"; }
+    public List<ActorData> players = new List<ActorData>();
+}
+public class MsgAddNetPlayer : MsgBase {
+    public MsgAddNetPlayer() { protoName = "MsgAddNetPlayer"; }
+    public ActorData actorData=new ActorData();
+}
+public class MsgRemoveNetPlayer : MsgBase {
+    public MsgRemoveNetPlayer() { protoName = "MsgRemoveNetPlayer"; }
+    public string id = "";
+}
+
 

@@ -4,6 +4,7 @@ using System.Text;
 using MongoDB.Driver;
 using Newtonsoft.Json;
 using ServerCore;
+using ServerCore.net;
 
 namespace ChildLogicHotfix {
     //处理角色消息 ，具体是登录成功后的逻辑,比如:强化装备、打副本
@@ -21,11 +22,28 @@ namespace ChildLogicHotfix {
             MsgGamePlayerData msgGamePlayerData = new MsgGamePlayerData();
             msgGamePlayerData.data = player.data;
             ProtocolBytes protocolGetPlayerData = msgGamePlayerData.Encode();
-            //protocolGetPlayerData.AddString("MsgGetPlayerData");
-            //protocolGetPlayerData.AddString(data);
+           
+           
             player.client.SendAsync(protocolGetPlayerData);
         }
-        public void MsgAddItem(IPlayer iplayer, ProtocolBase protocolBase) {
+        public void MsgPlayersList(IPlayer iplayer, ProtocolBase protoBase) {
+            Player player = iplayer as Player;
+            if (player == null) return;
+            MsgPlayersList msgPlayersList = new MsgPlayersList();
+            foreach(var item in PlayerManager.players.Values) {
+                msgPlayersList.players.Add(item.data);
+            }
+            ProtocolBytes protocolBytes= msgPlayersList.Encode();
+            player.client.SendAsync(protocolBytes);
+        }
+
+        public void MsgAddNetPlayer(IPlayer iplayer, ProtocolBase protoBase) {
+            Player player = iplayer as Player;
+            if (player == null) return;
+            PlayerManager.AddPlayer(player.id, player);
+        }
+
+            public void MsgAddItem(IPlayer iplayer, ProtocolBase protocolBase) {
             Player player = iplayer as Player;
             if (player == null) return;
             var mondb = ((Mongo)DataMgr.instance.database).database.GetCollection<ItemData>("items");

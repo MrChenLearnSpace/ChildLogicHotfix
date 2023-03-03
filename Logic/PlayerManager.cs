@@ -28,5 +28,33 @@ namespace ChildLogicHotfix {
                 players[id].SavePlayer();
             }
         }
+        public static void AddPlayer(string id, Player player) {
+
+            if (!players.ContainsKey(id)) {
+                players.Add(id, player);
+            }
+            else {
+                players[id] = player;
+            }
+            MsgAddNetPlayer msgAddNetPlayer = new MsgAddNetPlayer();
+            msgAddNetPlayer.actorData = player.data;
+            ProtocolBytes protocolBytes = msgAddNetPlayer.Encode();
+            foreach (Player player1 in players.Values) {
+                player1.SendAsync(protocolBytes);
+
+            }
+        }
+        public static void RemovePlayer(string id) {
+            
+                if (players.ContainsKey(id)) {
+                    players.Remove(id);
+                }
+                MsgRemoveNetPlayer msgRemoveNetPlayer = new MsgRemoveNetPlayer();
+                ProtocolBytes protocolBytes = msgRemoveNetPlayer.Encode();
+                foreach (Player player1 in players.Values) {
+                    player1.SendAsync(protocolBytes);
+                }
+            
+        }
     }
 }

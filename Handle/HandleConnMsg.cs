@@ -7,6 +7,7 @@ using System.Reflection;
 using ServerCore.net;
 using ServerCore;
 using MongoDB.Driver;
+using System.Numerics;
 
 namespace ChildLogicHotfix {
 
@@ -135,7 +136,10 @@ namespace ChildLogicHotfix {
             //返回
             msgLogin.result = 0;
             protocol = msgLogin.Encode();
-            conn.Send(protocol);
+            conn.SendAsync(protocol);
+            
+            // Console.WriteLine("OnLogin2");
+
             return;
         }
 

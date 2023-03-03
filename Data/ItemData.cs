@@ -19,8 +19,8 @@ public class ItemData {
     public int refinement= 0;
     public int mainPropld= 0;
     public int equipCharacter= 0;
-    public List<int> affixes;
-    public List<int> appendPropldList;//附加属性
+    public List<int> affixes=new List<int>();
+    public List<int> appendPropldList = new List<int>();//附加属性
 }
 
 

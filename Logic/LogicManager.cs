@@ -17,13 +17,17 @@ namespace ChildLogicHotfix {
             ServNet servNet =new ServNet();
             servNet.HandleDllName = "ChildLogicHotfix";
             servNet.Start("127.0.0.1", 33333);
-            
+            servNet.displayConsole = new List<string>() {
+                "MsgHeatBeat","MsgSyncTransform",
+            };
+
+
         }
 
 
-       // public static bool isActive = false;
+        // public static bool isActive = false;
         #region 数据库全局
-       public static string Serialize(PlayerData playerData) {
+        public static string Serialize(PlayerData playerData) {
 
 
             try {
@@ -62,7 +66,11 @@ namespace ChildLogicHotfix {
                     return false;
                 }
                 playerData.id = id;
-                playerData.ip = conn.GetAdress();
+                IMongoCollection<AccountData> account = mongo.database.GetCollection<AccountData>("accounts");
+                FilterDefinition<AccountData> accountFilter = Builders<AccountData>.Filter.Eq("id", id);
+                UpdateDefinition<AccountData> updateDefinition = Builders<AccountData>.Update.Set("ip", conn.GetAdress());
+                account.UpdateOne(accountFilter, updateDefinition);
+                //playerData.ip = conn.GetAdress();
                 collection.InsertOne(playerData);
 
                 return true;
@@ -96,15 +104,12 @@ namespace ChildLogicHotfix {
             //PlayerManager.Print();
             //ServNet.instance.Print();
         }
-        public void MsgAddWeaponData() {
-            WeaponData weaponData = new WeaponData();
-            weaponData.name = "aaa";
-            weaponData.atk = 50;
-            weaponData.dft = 3;
-            weaponData.hp = 20;
-            
-            PlayerManager.players["1"].data.weapons.Add(weaponData);
-
+        public void MsgAddItem() {
+            MsgAddItem msgAddItem = new MsgAddItem();
+            msgAddItem.data.ownerId = "1";
+            msgAddItem.data.itemId = "0001";
+            var mondb = ((Mongo)DataMgr.instance.database).database.GetCollection<ItemData>("items");
+            mondb.InsertOne(msgAddItem.data);
         }
 
             #endregion

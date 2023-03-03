@@ -4,14 +4,20 @@ using Newtonsoft.Json;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 [Serializable]
-public class PlayerData {
-    public string id = "";
+public class PlayerData : ActorData {
     public Properties properties=new Properties();
-    public Vec3 pos = new Vec3();
-    public Vec3 rot = new Vec3();
     [BsonIgnore]
     public List<ItemData> itemDatas= new List<ItemData>();
+    public PlayerData() {
+        pos.x = -232;
+        pos.z = -237;
+    }
 
+}
+public class ActorData  {
+    public string id = "";
+    public Vec3 pos = new Vec3();
+    public Vec3 rot = new Vec3();
 }
 public class Properties {
     public float Maxhp = 1000;
