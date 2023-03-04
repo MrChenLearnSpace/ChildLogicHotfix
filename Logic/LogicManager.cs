@@ -17,6 +17,7 @@ namespace ChildLogicHotfix {
             ServNet servNet =new ServNet();
             servNet.HandleDllName = "ChildLogicHotfix";
             servNet.Start("127.0.0.1", 33333);
+            servNet.heartBeatTime= 5;
             servNet.displayConsole = new List<string>() {
                 "MsgHeatBeat","MsgSyncTransform",
             };
